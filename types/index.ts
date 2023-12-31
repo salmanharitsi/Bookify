@@ -15,7 +15,7 @@ export type CreateUserParams = {
     photo: string
   }
   
-  // ====== EVENT PARAMS
+  // ====== BOOK PARAMS
   export type CreateBookParams = {
     userId: string
     book: {
