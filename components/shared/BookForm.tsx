@@ -121,6 +121,32 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                         )}
                     />
                 </div>
+                <div className="flex flex-col gap-5 md:flex-row">
+                    <FormField
+                        control={form.control}
+                        name="writer"
+                        render={({ field }) => (
+                            <FormItem className="w-full">
+                                <FormControl>
+                                    <Input placeholder="Writer" {...field} className="input-field" />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="poster"
+                        render={({ field }) => (
+                            <FormItem className="w-full">
+                                <FormControl>
+                                    <Input placeholder="Post by" {...field} className="input-field" />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
 
                 <div className="flex flex-col gap-5 md:flex-row">
                     <FormField

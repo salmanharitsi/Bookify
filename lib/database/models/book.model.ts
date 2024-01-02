@@ -4,6 +4,8 @@ export interface IBook extends Document {
   _id: string;
   title: string;
   description?: string;
+  writer: string;
+  poster: string;
   createdAt: Date;
   imageUrl: string;
   price: string;
@@ -16,6 +18,8 @@ export interface IBook extends Document {
 const BookSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
+  writer: {type: String},
+  poster: {type: String},
   createdAt: { type: Date, default: Date.now },
   imageUrl: { type: String, required: true },
   price: { type: String },

@@ -104,7 +104,7 @@ export async function deleteBook({ bookId, path }: DeleteBookParams) {
 }
 
 // GET ALL BOOK
-export async function getAllBooks({ query, limit = 6, page, category }: GetAllBooksParams) {
+export async function getAllBooks({ query, limit = 9, page, category }: GetAllBooksParams) {
   try {
     await connectToDatabase()
 

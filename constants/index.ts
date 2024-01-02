@@ -16,6 +16,8 @@ export const headerLinks = [
   export const bookDefaultValues = {
     title: '',
     description: '',
+    writer: '',
+    poster: '',
     imageUrl: '',
     categoryId: '',
     price: '',
