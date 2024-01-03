@@ -133,7 +133,7 @@ export async function getAllBooks({ query, limit = 9, page, category }: GetAllBo
 }
 
 // GET BOOKS BY ORGANIZER
-export async function getBooksByUser({ userId, limit = 6, page }: GetBooksByUserParams) {
+export async function getBooksByUser({ userId, limit = 9, page }: GetBooksByUserParams) {
   try {
     await connectToDatabase()
 

@@ -1,15 +1,23 @@
+import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
+import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllBooks } from "@/lib/actions/book.actions";
+import { SearchParamProps } from "@/types";
+import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home() {
+export default async function Home({ searchParams }: SearchParamProps) {
+  const page = Number(searchParams?.page) || 1;
+  const searchText =(searchParams?.query as string) || '';
+  const category = (searchParams?.category as string) || '';
+
   const books = await getAllBooks({
-    query : '',
-    category: '',
-    page: 1,
-    limit: 6
+    query : searchText,
+    category,
+    page,
+    limit: 9
   });
 
   return (
@@ -20,7 +28,7 @@ export default async function Home() {
             <h1 className="h1-bold">explore all your curiosities about great books on our platform!</h1>
             <p className="p-regular-20 md:p-regular-24">We all know that books are windows to the world, sources of knowledge, and records of miracles</p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
-              <Link href="#events">
+              <Link href="#books">
                 Explore Now
               </Link>
             </Button>
@@ -36,12 +44,16 @@ export default async function Home() {
         </div>
       </section> 
 
-      <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold">Trust by <br /> Thousands of Events</h2>
+      <section id="books" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+        <h2 className="h2-bold">Search <br /> Your Book Now!</h2>
+
+        <SignedOut>
+          <i className="underline">Please log in if you want to post a book</i>
+        </SignedOut>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          Search
-          Category
+          <Search />
+          <CategoryFilter />
         </div>
 
         <Collection
@@ -49,9 +61,9 @@ export default async function Home() {
           emptyTitle="No Books Found"
           emptyStateSubtext="Come back later"
           collectionType="All_Books"
-          limit={10}
-          page={1}
-          totalPages={2}
+          limit={9}
+          page={page}
+          totalPages={books?.totalPages}
         />
       </section>
     </>

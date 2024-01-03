@@ -33,12 +33,12 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
     const router = useRouter();
 
     const { startUpload } = useUploadThing('imageUploader')
-    
+
     const form = useForm<z.infer<typeof bookFormSchema>>({
         resolver: zodResolver(bookFormSchema),
         defaultValues: initialValues
     })
-    
+
     async function onSubmit(values: z.infer<typeof bookFormSchema>) {
         let uploadedImageUrl = values.imageUrl;
 
@@ -128,7 +128,7 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                         render={({ field }) => (
                             <FormItem className="w-full">
                                 <FormControl>
-                                    <Input placeholder="Writer" {...field} className="input-field" />
+                                    <Input placeholder="Author" {...field} className="input-field" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -195,7 +195,7 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                                             className="filter-grey"
                                         />
                                         <Input type="number" placeholder="Price" {...field} className="p-regular-16 border-0 bg-grey-50 outline-offset-0 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0" />
-                                        <FormField
+                                        {/* <FormField
                                             control={form.control}
                                             name="isFree"
                                             render={({ field }) => (
@@ -208,12 +208,11 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                                                                 checked={field.value}
                                                                 id="isFree" className="mr-2 h-5 w-5 border-2 border-primary-500" />
                                                         </div>
-
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
                                             )}
-                                        />
+                                        /> */}
                                     </div>
 
                                 </FormControl>
@@ -235,7 +234,7 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                                             height={24}
                                         />
 
-                                        <Input placeholder="URL" {...field} className="input-field" />
+                                        <Input placeholder="Source book URL " {...field} className="input-field" />
                                     </div>
 
                                 </FormControl>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Bookify',
   description: 'Bookify is a platform for writer and reader',
   icons: {
-    icon: 'assets/images/logo.svg'
+    icon: 'assets/images/web-logo.svg'
   }
 }
 

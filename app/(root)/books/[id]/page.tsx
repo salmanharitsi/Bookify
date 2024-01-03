@@ -1,7 +1,9 @@
+import Collection from '@/components/shared/Collection';
 import { getBookById, getRelatedBooksByCategory } from '@/lib/actions/book.actions'
 import { formatDateTime } from '@/lib/utils';
 import { SearchParamProps } from '@/types'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) => {
   const book = await getBookById(id);
@@ -31,7 +33,7 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <div className="flex gap-3">
                 <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">
-                  {book.isFree ? 'FREE' : `$${book.price}`}
+                  {book.isFree ? 'FREE' : `Rp. ${book.price}`}
                 </p>
                 <p className="p-medium-16 rounded-full bg-grey-500/10 px-4 py-2.5 text-grey-500">
                   {book.category.name}
@@ -44,9 +46,11 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
           {/* <CheckoutButton event={event} /> */}
 
           <div className="flex flex-col gap-2">
-            <p className="p-bold-20 text-grey-600">What You'll Learn:</p>
+            <p className="p-bold-20 text-grey-600">What You'll Read:</p>
             <p className="p-medium-16 lg:p-regular-18">{book.description}</p>
-            <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">{book.url}</p>
+
+            <p className="p-bold-20 text-grey-600 mt-6">Lets check it:</p>
+            <Link href={book.url} target='_blank' className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">{book.url}</Link>
           </div>
         </div>
       </div>
@@ -54,17 +58,17 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
 
     {/* EVENTS with the same category */}
     <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-      <h2 className="h2-bold">Related Books For You</h2>
+      <h2 className="h2-bold">Related Books</h2>
 
-      {/* <Collection 
-          data={relatedEvents?.data}
+      <Collection 
+          data={relatedBooks?.data}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
-          collectionType="All_Events"
+          collectionType="All_Books"
           limit={3}
           page={searchParams.page as string}
-          totalPages={relatedEvents?.totalPages}
-        /> */}
+          totalPages={relatedBooks?.totalPages}
+        />
     </section>
     </>
   )

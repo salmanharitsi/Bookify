@@ -18,24 +18,26 @@ const Header = () => {
                     />
                 </Link>
 
-                <SignedIn>
-                    <nav className='md:flex-between hidden w-full max-w-xs'>
-                        <NavItems/>
-                    </nav>
-                </SignedIn>
-                
-                <div className='flex w-32 justify-end gap-3'>
+                <div className='flex items-center justify-between'>
                     <SignedIn>
-                        <UserButton afterSignOutUrl='/'/>
-                        <MobileNav/>
+                        <nav className='md:flex-between hidden w-full max-w-[180px]'>
+                            <NavItems />
+                        </nav>
                     </SignedIn>
-                    <SignedOut>
-                        <Button asChild className='rounded-full' size='lg'>
-                            <Link href='/sign-in'>
-                                Login
-                            </Link>
-                        </Button>
-                    </SignedOut>
+
+                    <div className='flex w-32 justify-end gap-3'>
+                        <SignedIn>
+                            <UserButton afterSignOutUrl='/' />
+                            <MobileNav />
+                        </SignedIn>
+                        <SignedOut>
+                            <Button asChild className='rounded-full' size='lg'>
+                                <Link href='/sign-in'>
+                                    Login
+                                </Link>
+                            </Button>
+                        </SignedOut>
+                    </div>
                 </div>
             </div>
         </header>

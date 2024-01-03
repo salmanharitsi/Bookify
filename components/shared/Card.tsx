@@ -13,29 +13,39 @@ type CardProps = {
 const Card = ({ book, hidePrice }: CardProps) => {
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
-      <Link 
+      <Link
         href={`/books/${book._id}`}
-        style={{backgroundImage: `url(${book.imageUrl})`}}
+        style={{ backgroundImage: `url(${book.imageUrl})` }}
         className="flex-center flex-grow bg-gray-50 bg-cover bg-center text-grey-500"
       />
 
       <div
-        className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4"
-      > 
-       {!hidePrice && <div className="flex gap-2">
-          <span className="p-semibold-14 w-min rounded-full bg-green-100 px-4 py-1 text-green-60">
-            {book.isFree ? 'FREE' : `$${book.price}`}
+        className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-3"
+      >
+        {!hidePrice && <div className="flex gap-2">
+          <span className="p-semibold-14 rounded-full bg-green-100 px-4 py-1 text-green-60">
+            {book.isFree ? 'FREE' : `Rp. ${book.price}`}
           </span>
           <p className="p-semibold-14 rounded-full bg-grey-500/10 px-4 py-1 text-grey-500 line-clamp-1">
             {book.category.name}
           </p>
         </div>}
 
+        <p className="p-medium-14 p-medium-16 text-grey-500">
+          <i>Author: {book.writer}</i>
+        </p>
+
         <Link href={`/books/${book._id}`}>
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">{book.title}</p>
         </Link>
 
-        
+        <div className='flex-1'></div>
+
+        <div className="flex-between w-full">
+          <p className="p-medium-12 md:p-medium-14 text-grey-600">
+            Post by: {book.poster}
+          </p>
+        </div>
       </div>
     </div>
   )

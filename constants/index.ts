@@ -7,10 +7,10 @@ export const headerLinks = [
       label: 'Post Book',
       route: '/books/create',
     },
-    {
-      label: 'My Profile',
-      route: '/profile',
-    },
+    // {
+    //   label: 'My Profile',
+    //   route: '/profile',
+    // },
   ]
   
   export const bookDefaultValues = {
