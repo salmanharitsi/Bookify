@@ -15,6 +15,7 @@ const Header = () => {
                         width={128}
                         height={38}
                         alt='Bookify Logo'
+                        className=' font-poppins'
                     />
                 </Link>
 

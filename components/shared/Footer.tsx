@@ -12,6 +12,7 @@ const Footer = () => {
             alt="logo"
             width={128}
             height={38}
+            className=' font-poppins'
           />
         </Link>
 
