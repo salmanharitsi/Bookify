@@ -18,14 +18,15 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
     <>
       <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
-          <Image
-            src={book.imageUrl}
-            alt="hero image"
-            width={1000}
-            height={1000}
-            className="h-full min-h-[300px] object-cover object-center"
-          />
-
+          <div className='max-h-[80vh]'>
+            <Image
+              src={book.imageUrl}
+              alt="hero image"
+              width={1000}
+              height={1000}
+              className="h-[100%] md:h-full min-h-[300px] object-cover object-center"
+            />
+          </div>
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
             <div className="flex flex-col gap-6">
               <h2 className='h2-bold'>{book.title}</h2>
