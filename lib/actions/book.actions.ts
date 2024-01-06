@@ -32,20 +32,25 @@ export async function createBook({ userId, book, path }: CreateBookParams) {
   try {
     await connectToDatabase()
 
-    let organizer = null;
-    if (userId) {
-      organizer = await User.findById(userId);
-      if (!organizer) throw new Error('Organizer not found');
-    }
+    // let organizer = null;
+    // if (userId) {
+    //   organizer = await User.findById(userId);
+    //   if (!organizer) throw new Error('Organizer not found');
+    // }
 
-    const newBook = await Book.create({ ...book, category: book.categoryId, organizer: organizer ? userId : null })
-    revalidatePath(path)
-
-    // const organizer = await User.findById(userId)
-    // if (!organizer) throw new Error('Organizer not found')
-
-    // const newBook = await Book.create({ ...book, category: book.categoryId, organizer: userId })
+    // const newBook = await Book.create({ ...book, category: book.categoryId, organizer: organizer ? userId : null })
     // revalidatePath(path)
+
+    const organizer = await User.findById(userId)
+    if (!organizer) throw new Error('Organizer not found')
+
+    const newBook = await Book.create({ 
+      ...book, 
+      category: book.categoryId, 
+      organizer: userId 
+    })
+    
+    revalidatePath(path)
 
     return JSON.parse(JSON.stringify(newBook))
   } catch (error) {

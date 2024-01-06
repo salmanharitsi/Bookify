@@ -134,18 +134,6 @@ const BookForm = ({ userId, type, book, bookId }: BookFormProps) => {
                             </FormItem>
                         )}
                     />
-                    <FormField
-                        control={form.control}
-                        name="poster"
-                        render={({ field }) => (
-                            <FormItem className="w-full">
-                                <FormControl>
-                                    <Input placeholder="Post by" {...field} className="input-field" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
                 </div>
 
                 <div className="flex flex-col gap-5 md:flex-row">

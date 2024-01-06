@@ -40,14 +40,19 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
                     {book.category.name}
                   </p>
                 </div>
-
               </div>
             </div>
 
-            {/* <CheckoutButton event={event} /> */}
+            {/* <CheckoutButton book={book} /> */}
 
             <div className="flex flex-col gap-2">
-              <p className="p-bold-20 text-grey-600">What You'll Read:</p>
+              <p className="p-medium-18 mt-2 sm:mt-0">
+                post by{' '}
+                <span className="text-primary-500">{book.organizer.firstName} {book.organizer.lastName}</span>
+              </p>
+              <p className="p-bold-20 text-grey-600 mt-6">Author:</p>
+              <p className="p-medium-16 lg:p-regular-18">{book.writer}</p>
+              <p className="p-bold-20 text-grey-600 mt-6">What You'll Read:</p>
               <p className="p-medium-16 lg:p-regular-18">{book.description}</p>
 
               <p className="p-bold-20 text-grey-600 mt-6">Lets check it:</p>
@@ -57,7 +62,7 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
         </div>
       </section>
 
-      {/* EVENTS with the same category */}
+      {/* BOOKS with the same category */}
       <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">Related Books</h2>
 

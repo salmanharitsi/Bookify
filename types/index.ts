@@ -22,7 +22,6 @@ export type CreateUserParams = {
       title: string
       description: string
       writer: string
-      poster: string
       imageUrl: string
       categoryId: string
       price: string
@@ -39,7 +38,6 @@ export type CreateUserParams = {
       title: string
       imageUrl: string
       writer: string
-      poster: string
       description: string
       categoryId: string
       price: string
@@ -78,7 +76,6 @@ export type CreateUserParams = {
     _id: string
     title: string
     writer: string
-    poster: string
     description: string
     price: string
     isFree: boolean

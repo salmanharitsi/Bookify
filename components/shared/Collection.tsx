@@ -11,7 +11,7 @@ type CollectionProps = {
     page: number | string,
     totalPages?: number,
     urlParamName?: string,
-    collectionType?: 'My_Tickets' | 'All_Books'
+    collectionType?: 'My_Tickets' | 'All_Books' | 'Books_Organized'
 }
 
 const Collection = ({
@@ -30,10 +30,11 @@ const Collection = ({
                     <ul className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10'>
                         {data.map((book) => {
                             const hidePrice = collectionType === 'My_Tickets'
+                            const hasOrderLink = collectionType === 'Books_Organized'
 
                             return(
                                 <li key={book._id} className='flelx justify-center'>
-                                    <Card book={book} hidePrice={hidePrice} />
+                                    <Card book={book} hidePrice={hidePrice} hasOrderLink={hasOrderLink}/>
                                 </li>
                             )
                         })}
