@@ -51,7 +51,7 @@ const BookDetails = async ({ params: { id }, searchParams }: SearchParamProps) =
                 <span className="text-primary-500">{book.organizer.firstName} {book.organizer.lastName}</span>
               </p>
               <p className="p-bold-20 text-grey-600 mt-6">Author:</p>
-              <p className="p-medium-16 lg:p-regular-18">{book.writer}</p>
+              <p className="p-medium-16 lg:p-regular-18 capitalize">{book.writer}</p>
               <p className="p-bold-20 text-grey-600 mt-6">What You'll Read:</p>
               <p className="p-medium-16 lg:p-regular-18">{book.description}</p>
 

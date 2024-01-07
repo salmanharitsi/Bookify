@@ -50,7 +50,7 @@ const Card = ({ book, hidePrice, hasOrderLink }: CardProps) => {
         </div>}
 
         <p className="p-medium-14 p-medium-16 text-grey-500">
-          <i>Author: {book.writer}</i>
+          <i className='capitalize'>Author: {book.writer}</i>
         </p>
 
         <Link href={`/books/${book._id}`}>
